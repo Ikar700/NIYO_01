@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "niyo-01"
+version = "0.1.0"
+description = "Olubadejo Cornelius Fasae entry for the NIYO Backend Developer Assessment"
+authors = ["ikar700 <cornex111@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.6"
+djangorestframework = "^3.15.1"
+djoser = "^2.2.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
