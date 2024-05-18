@@ -1,6 +1,13 @@
 from datetime import timedelta
 from pathlib import Path
 
+import dj_database_url
+import environ
+
+env = environ.Env()
+
+environ.Env.read_env()
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -12,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-2#uk3m$d#jot@s@t%!^&=e*s%wlpa%samgzphkfw4f=36j00$1"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -67,10 +74,8 @@ WSGI_APPLICATION = "NIYO.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
+    'default': dj_database_url.parse(env('DATABASE_URL'))
+
 }
 
 
@@ -109,21 +114,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = "static/"
-"""
-# Setting up Email Backend settings using google SMTP server settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'storingudemy@gmail.com'
-EMAIL_HOST_PASSWORD = 'fbdxyvjoijoltqpf'
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-"""
-
-EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
-EMAIL_HOST_USER = '66c81d9ec78b69'
-EMAIL_HOST_PASSWORD = '5480c48403a605'
-EMAIL_PORT = '2525' 
 
 # Rest framework settings
 REST_FRAMEWORK = {
@@ -147,15 +137,8 @@ SIMPLE_JWT = {
 DJOSER = {
     "LOGIN_FIELD": 'email',
     'USER_CREATE_PASSWORD_RETYPE': True,
-    'SEND_CONFIRMATION_EMAIL': True,
-    'PASSWORD_CHANGED_EMAIL_CONFIRMATION': True,
-    'USERNAME_CHANGED_EMAIL_CONFIRMATION': True,
     'SET_PASSWORD_RETYPE': True,
-    'PASSWORD_RESET_CONFIRM_URL': 'password/reset/confirm/{uid}/{token}',
-    'USERNAME_RESET_CONFIRM_URL': 'email/reset/confirm/{uid}/{token}',
-    'ACTIVATION_URL': 'activate/{uid}/{token}',
-    'SEND_ACTIVATION_EMAIL': True,
-    'LOGIN_ON_REGISTRATION':False,
+    'LOGIN_ON_REGISTRATION':True,
     'SERIALIZERS': {
         'user_create': 'Auth.serializers.UserCreateSerializer',
         'user': 'Auth.serializers.UserCreateSerializer',
