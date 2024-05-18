@@ -35,10 +35,10 @@ class LoginView(APIView):
             response.set_cookie(
                 key='refresh_token',
                 value=refresh_token,
-                expires=datetime.now() + timedelta(days=7),  # Set the expiration date for the cookie
-                httponly=True,  # Make the cookie accessible only by the server
-                secure=True,  # Ensure the cookie is only sent over HTTPS
-                samesite='Strict'  # Set the SameSite policy to prevent CSRF attacks
+                expires=datetime.now() + timedelta(days=7),  # The expiration date for the cookie
+                httponly=True,  # The cookie accessible only by the server
+                secure=True,  # Ensuring the cookie is only sent over HTTPS
+                samesite='Strict'  # Setting the SameSite policy to prevent CSRF attacks
             )
             return response
         else:

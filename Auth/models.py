@@ -3,10 +3,12 @@ from django.contrib.auth.models  import BaseUserManager, AbstractBaseUser, Permi
 
 from uuid import uuid4
 
+# User account manager for custom user
 class UserAccountManager(BaseUserManager):
 
     def create_user(self, email, password=None, **extra_fields):
 
+        # Error handling for not email
         if not email:
             raise ValueError('You must have an email to sign up')
         email = self.normalize_email(email)
@@ -34,6 +36,7 @@ class UserAccountManager(BaseUserManager):
 
 class UserAccount(AbstractBaseUser, PermissionsMixin):
 
+    # User properties
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     first_name = models.CharField(max_length=256)
     last_name = models.CharField(max_length=256)
