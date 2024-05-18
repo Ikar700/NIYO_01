@@ -9,18 +9,40 @@ from .serializers import UserSerializer
 
 from datetime import datetime, timedelta
 
+"""
+Views for user authentication.
+
+This module defines the views for user authentication,
+including the LoginView for handling user login.
+"""
+
 # Create your views here.
 class LoginView(APIView):
-    
+    """
+    View for handling user login.
+
+    This view authenticates a user based on the provided email and password,
+    and generates and returns access and refresh tokens upon successful authentication.
+    """
+
     permission_classes = []
 
     def post(self, request):
+        """
+        Handle the POST request for user login.
+
+        Args:
+            request (Request): The incoming HTTP request.
+
+        Returns:
+            Response: A response containing the access and refresh tokens, and user data if authentication is successful.
+            Response: An error response if authentication fails.
+        """
         email = request.data.get('email')
         password = request.data.get('password')
         user = authenticate(request, username=email, password=password)
 
         if user is not None and user.is_active:
-            
             refresh = RefreshToken.for_user(user)
             access_token = str(refresh.access_token)
             refresh_token = str(refresh)
