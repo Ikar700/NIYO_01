@@ -34,7 +34,7 @@ The API provides user authentication, CRUD operations for tasks, data persistenc
 
     python -m venv env
     
-    ## On Linux-based Machines
+    ## On Linux-based Machines and macOS
         source env/bin/activate 
     ## On Windows, 
         use env\Scripts\activate
