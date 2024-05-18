@@ -1,7 +1,7 @@
 # NIYO_01: Task Management API
 
-This repository contains a RESTful API for a simple task management system, developed as part of a coding challenge. The API provides user authentication, CRUD operations for tasks, data persistence, and input validation.
-This is also my entry for the NIYO group Backend Developer's Assessment 
+This repository contains a RESTful API for a simple task management system, developed as my entry for the NIYO group Backend Developer's Assessment.
+The API provides user authentication, CRUD operations for tasks, data persistence, and input validation.
 
 ## Features
 
@@ -24,11 +24,11 @@ This is also my entry for the NIYO group Backend Developer's Assessment
 
 1. Clone the repository:
 
-    git clone https://github.com/Ikar700/NIYO_01.git
+       git clone https://github.com/Ikar700/NIYO_01.git
 
 2. Navigate to the project directory:
 
-    cd NIYO_01
+        cd NIYO_01
 
 3. Create and activate a virtual environment :
 
@@ -41,17 +41,17 @@ This is also my entry for the NIYO group Backend Developer's Assessment
 
 5. Install the required dependencies:
 
-    pip install poetry
-    
-    poetry install
+        pip install poetry
+        poetry install
 
 6. create a .env file in the NIYO folder.
 
-7. Copy the keys in docs/.env.sample to get the code up and running
+        
+7. Copy the keys in docs/.env.sample then paste into the NIYO/.env
 
 8. Start the development server:
 
-    python manage.py runserver
+        python manage.py runserver
 
 The API will be accessible at `http://localhost:8000/`.
 
