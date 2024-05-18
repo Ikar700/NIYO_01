@@ -24,13 +24,13 @@ This is also my entry for the NIYO group Backend Developer's Assessment
 
 1. Clone the repository:
 
- - git clone https://github.com/Ikar700/NIYO_01.git
+    git clone https://github.com/Ikar700/NIYO_01.git
 
 2. Navigate to the project directory:
 
- - cd NIYO_01
+    cd NIYO_01
 
-3. Create and activate a virtual environment (optional but recommended):
+3. Create and activate a virtual environment :
 
     python -m venv env
     
@@ -39,20 +39,17 @@ This is also my entry for the NIYO group Backend Developer's Assessment
     ## On Windows, 
         use env\Scripts\activate
 
-4. Install the required dependencies:
+5. Install the required dependencies:
 
     pip install poetry
     
     poetry install
 
-5. create a .env file in the NIYO folder.
+6. create a .env file in the NIYO folder.
 
-6. Copy the keys in docs/.env.sample to get the code up and running
-    ## Test User Login Details
-        email - testuser@gmail.com
-        password
+7. Copy the keys in docs/.env.sample to get the code up and running
 
-7. Start the development server:
+8. Start the development server:
 
     python manage.py runserver
 
