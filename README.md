@@ -15,10 +15,11 @@ The API provides user authentication, CRUD operations for tasks, data persistenc
 
 - Python
 - Django
+- Django Djoser (For user authentication)
 - Django REST Framework
 - Django Channels (for real-time updates)
 - JWT Authentication
-- Database - PostgreSQL
+- Database - PostgreSQL (hosted on render)
 
 ## Installation
 
